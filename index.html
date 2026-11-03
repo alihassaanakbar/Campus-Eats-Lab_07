@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Eats — Campus food, without the queue</title>
+    <meta
+      name="description"
+      content="Order from campus kitchens, skip the queue and pick up between classes. HCI Lab 07: Figma to responsive website."
+    />
+    <link rel="icon" href="assets/icons/utensils.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+
+  <body>
+    <!-- Keyboard users can jump straight past the navigation -->
+    <a
+      href="#main"
+      class="focus-ring sr-only rounded-md bg-primary px-4 py-2 font-semibold text-on-primary focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50"
+      >Skip to main content</a
+    >
+
+    <!-- ============ Navbar (Figma: Navbar) ============ -->
+    <header class="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur">
+      <div class="mx-auto flex max-w-(--container-page) items-center justify-between gap-6 px-5 py-4 md:px-8 lg:px-0">
+        <a href="#home" class="focus-ring flex items-center gap-3 rounded-md" aria-label="Campus Eats home">
+          <span class="flex size-10 items-center justify-center rounded-md bg-primary text-on-primary">
+            <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          </span>
+          <span class="text-lg font-bold whitespace-nowrap sm:text-xl">Campus Eats</span>
+        </a>
+
+        <nav aria-label="Main" class="hidden lg:block">
+          <ul class="flex items-center gap-8">
+            <li><a href="#features" class="focus-ring rounded-sm font-medium text-muted transition-colors hover:text-primary">How it works</a></li>
+            <li><a href="#popular" class="focus-ring rounded-sm font-medium text-muted transition-colors hover:text-primary">Menu</a></li>
+            <li><a href="#contact" class="focus-ring rounded-sm font-medium text-muted transition-colors hover:text-primary">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="#popular"
+            class="focus-ring flex h-12 items-center gap-2 rounded-pill bg-secondary px-4 font-semibold text-ink transition-colors hover:bg-primary hover:text-on-primary"
+            aria-label="Cart, 0 items"
+            data-cart-link
+          >
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span data-cart-count aria-hidden="true">0</span>
+          </a>
+          <a href="#popular" class="btn-primary hidden sm:inline-flex">Order now</a>
+          <button
+            type="button"
+            class="focus-ring flex size-12 items-center justify-center rounded-md border border-border text-ink transition-colors hover:bg-secondary lg:hidden"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            data-nav-toggle
+          >
+            <span class="sr-only" data-nav-toggle-label>Open menu</span>
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile / tablet menu (shown below 1024px when toggled) -->
+      <nav id="mobile-menu" aria-label="Mobile" class="hidden border-t border-border bg-surface lg:hidden" data-mobile-menu>
+        <ul class="flex flex-col px-5 py-3 md:px-8">
+          <li><a href="#features" class="focus-ring block rounded-md px-3 py-3 font-medium hover:bg-secondary" data-mobile-link>How it works</a></li>
+          <li><a href="#popular" class="focus-ring block rounded-md px-3 py-3 font-medium hover:bg-secondary" data-mobile-link>Menu</a></li>
+          <li><a href="#contact" class="focus-ring block rounded-md px-3 py-3 font-medium hover:bg-secondary" data-mobile-link>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ============ HeroSection ============ -->
+      <section id="home" class="px-5 py-14 md:px-8 md:py-20 lg:px-20" aria-labelledby="hero-title">
+        <div class="mx-auto grid max-w-(--container-page) items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="flex flex-col gap-6">
+            <p class="inline-flex w-fit items-center gap-2 rounded-pill bg-secondary px-4 py-2 text-sm font-semibold text-primary">
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Open today · 8:00 AM – 9:00 PM
+            </p>
+            <h1 id="hero-title" class="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-[56px] lg:leading-[64px]">
+              Hot campus food, ready between classes.
+            </h1>
+            <p class="max-w-xl text-lg leading-7 text-muted">
+              Order from your favourite campus kitchens, skip the queue, and pick up in minutes — or get it delivered to your block.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="#popular" class="btn-primary">
+                Browse the menu
+                <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="#features" class="btn-secondary">How it works</a>
+            </div>
+            <dl class="grid grid-cols-3 gap-4 border-t border-border pt-6">
+              <div>
+                <dt class="text-sm text-muted">Average pickup</dt>
+                <dd class="text-xl font-semibold md:text-2xl">15 min</dd>
+              </div>
+              <div>
+                <dt class="text-sm text-muted">Campus kitchens</dt>
+                <dd class="text-xl font-semibold md:text-2xl">4</dd>
+              </div>
+              <div>
+                <dt class="text-sm text-muted">Student rating</dt>
+                <dd class="text-xl font-semibold md:text-2xl">4.6 / 5</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Hero visual: 2x2 dish grid + order status card (no absolute positioning) -->
+          <div class="mx-auto flex w-full max-w-xl flex-col gap-4 lg:max-w-none">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="assets/images/pepperoni-pizza.jpg" alt="Pepperoni pizza with melted mozzarella on a wooden board" width="800" height="800" class="aspect-square w-full rounded-xl object-cover" />
+              <img src="assets/images/crispy-chicken-burger.jpg" alt="Crispy chicken burger with lettuce and sauce, served with fries" width="800" height="800" class="aspect-square w-full rounded-xl object-cover" />
+              <img src="assets/images/chocolate-lava-cake.jpg" alt="Chocolate lava cake with a raspberry and chocolate sauce" width="800" height="800" class="aspect-square w-full rounded-xl object-cover" />
+              <img src="assets/images/cold-coffee.jpg" alt="Glass of iced cold coffee with a straw" width="800" height="800" class="aspect-square w-full rounded-xl object-cover" />
+            </div>
+            <div class="flex items-center gap-4 rounded-lg border border-border bg-surface p-4 shadow-sm">
+              <span class="flex size-12 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
+                <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              </span>
+              <div>
+                <p class="font-semibold">Order #1042 is ready</p>
+                <p class="text-sm text-muted">Pickup at Campus Cafe, Block A</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FeatureGrid ============ -->
+      <section id="features" class="bg-surface px-5 py-16 md:px-8 md:py-24 lg:px-20" aria-labelledby="features-title">
+        <div class="mx-auto flex max-w-(--container-page) flex-col gap-12">
+          <header class="mx-auto flex max-w-2xl flex-col items-center gap-3 text-center">
+            <p class="eyebrow">Why Campus Eats</p>
+            <h2 id="features-title" class="text-3xl leading-tight font-bold md:text-4xl">Made for the way students eat</h2>
+            <p class="text-lg leading-7 text-muted">Less time in the queue, more time for class, friends and everything else.</p>
+          </header>
+
+          <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <li class="flex flex-col gap-4 rounded-lg bg-background p-6">
+              <span class="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+                <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <h3 class="text-xl font-semibold">Order ahead</h3>
+              <p class="text-sm leading-5 text-muted">Place your order before class ends and skip the canteen queue.</p>
+            </li>
+            <li class="flex flex-col gap-4 rounded-lg bg-background p-6">
+              <span class="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+                <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </span>
+              <h3 class="text-xl font-semibold">Pickup or delivery</h3>
+              <p class="text-sm leading-5 text-muted">Collect it from the counter or get it delivered to your block.</p>
+            </li>
+            <li class="flex flex-col gap-4 rounded-lg bg-background p-6">
+              <span class="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+                <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+              </span>
+              <h3 class="text-xl font-semibold">Pay your way</h3>
+              <p class="text-sm leading-5 text-muted">Cash, card or mobile wallet: use whatever works for you.</p>
+            </li>
+            <li class="flex flex-col gap-4 rounded-lg bg-background p-6">
+              <span class="flex size-12 items-center justify-center rounded-md bg-secondary text-primary">
+                <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              </span>
+              <h3 class="text-xl font-semibold">Live order tracking</h3>
+              <p class="text-sm leading-5 text-muted">See when your food is being prepared and the moment it's ready.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ ProductGrid ============ -->
+      <section id="popular" class="px-5 py-16 md:px-8 md:py-24 lg:px-20" aria-labelledby="popular-title">
+        <div class="mx-auto flex max-w-(--container-page) flex-col gap-10">
+          <header class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div class="flex flex-col gap-3">
+              <p class="eyebrow">Popular this week</p>
+              <h2 id="popular-title" class="text-3xl leading-tight font-bold md:text-4xl">Student favourites</h2>
+            </div>
+            <a href="#contact" class="focus-ring inline-flex w-fit items-center gap-2 rounded-sm font-semibold text-primary underline-offset-4 hover:underline">
+              Ask about the full menu
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </header>
+
+          <ul class="grid gap-6 md:grid-cols-2">
+            <li class="flex items-center gap-4 rounded-lg bg-surface p-4">
+              <img src="assets/images/pepperoni-pizza.jpg" alt="Pepperoni pizza, sliced" width="800" height="800" loading="lazy" class="size-24 shrink-0 rounded-md object-cover md:size-28" />
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="text-lg font-semibold">Pepperoni Pizza</h3>
+                <p class="text-sm text-muted">Campus Cafe · 25 min</p>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <p class="font-semibold text-primary">Rs. 1,299</p>
+                  <button type="button" class="btn-secondary min-h-10 px-4 py-2 text-sm" data-add-to-cart="Pepperoni Pizza">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                    Add <span class="sr-only">Pepperoni Pizza to cart</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 rounded-lg bg-surface p-4">
+              <img src="assets/images/crispy-chicken-burger.jpg" alt="Crispy chicken burger with fries" width="800" height="800" loading="lazy" class="size-24 shrink-0 rounded-md object-cover md:size-28" />
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="text-lg font-semibold">Crispy Chicken Burger</h3>
+                <p class="text-sm text-muted">Grill House · 20 min</p>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <p class="font-semibold text-primary">Rs. 650</p>
+                  <button type="button" class="btn-secondary min-h-10 px-4 py-2 text-sm" data-add-to-cart="Crispy Chicken Burger">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                    Add <span class="sr-only">Crispy Chicken Burger to cart</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 rounded-lg bg-surface p-4">
+              <img src="assets/images/chocolate-lava-cake.jpg" alt="Chocolate lava cake on a white plate" width="800" height="800" loading="lazy" class="size-24 shrink-0 rounded-md object-cover md:size-28" />
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="text-lg font-semibold">Chocolate Lava Cake</h3>
+                <p class="text-sm text-muted">Campus Cafe · 15 min</p>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <p class="font-semibold text-primary">Rs. 450</p>
+                  <button type="button" class="btn-secondary min-h-10 px-4 py-2 text-sm" data-add-to-cart="Chocolate Lava Cake">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                    Add <span class="sr-only">Chocolate Lava Cake to cart</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-center gap-4 rounded-lg bg-surface p-4">
+              <img src="assets/images/cold-coffee.jpg" alt="Iced cold coffee in a tall glass" width="800" height="800" loading="lazy" class="size-24 shrink-0 rounded-md object-cover md:size-28" />
+              <div class="flex min-w-0 flex-1 flex-col gap-1">
+                <h3 class="text-lg font-semibold">Cold Coffee</h3>
+                <p class="text-sm text-muted">Chai Point · 5 min</p>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <p class="font-semibold text-primary">Rs. 350</p>
+                  <button type="button" class="btn-secondary min-h-10 px-4 py-2 text-sm" data-add-to-cart="Cold Coffee">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                    Add <span class="sr-only">Cold Coffee to cart</span>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p class="sr-only" aria-live="polite" data-cart-status></p>
+        </div>
+      </section>
+
+      <!-- ============ ContactSection ============ -->
+      <section id="contact" class="bg-surface px-5 py-16 md:px-8 md:py-24 lg:px-20" aria-labelledby="contact-title">
+        <div class="mx-auto grid max-w-(--container-page) gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-3">
+              <p class="eyebrow">Contact</p>
+              <h2 id="contact-title" class="text-3xl leading-tight font-bold md:text-4xl">Questions or a big group order?</h2>
+              <p class="text-lg leading-7 text-muted">Planning a society event or a study-group feast? Send us a message and we'll reply within one working day.</p>
+            </div>
+            <ul class="flex flex-col gap-4">
+              <li class="flex items-center gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
+                  <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <div>
+                  <p class="text-sm text-muted">Email</p>
+                  <a href="mailto:hello@campuseats.example" class="focus-ring rounded-sm font-semibold hover:text-primary">hello@campuseats.example</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
+                  <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div>
+                  <p class="text-sm text-muted">Phone</p>
+                  <a href="tel:+920000000000" class="focus-ring rounded-sm font-semibold hover:text-primary">+92 300 000 0000</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-md bg-secondary text-primary">
+                  <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <div>
+                  <p class="text-sm text-muted">Find us</p>
+                  <p class="font-semibold">Campus Cafe, Block A</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <form class="flex flex-col gap-5 rounded-xl bg-background p-6 md:p-8" novalidate data-contact-form aria-labelledby="contact-title">
+            <div class="flex flex-col gap-2">
+              <label for="contact-name" class="font-medium">Full name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" class="field-input" placeholder="e.g. Sara Ahmed" aria-describedby="contact-name-error" />
+              <p id="contact-name-error" class="hidden text-sm text-red-700" data-error-for="name"></p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="contact-email" class="font-medium">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" class="field-input" placeholder="you@university.edu.pk" aria-describedby="contact-email-error" />
+              <p id="contact-email-error" class="hidden text-sm text-red-700" data-error-for="email"></p>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="contact-message" class="font-medium">Message</label>
+              <textarea id="contact-message" name="message" rows="5" class="field-input resize-y" placeholder="Tell us what you need" aria-describedby="contact-message-error"></textarea>
+              <p id="contact-message-error" class="hidden text-sm text-red-700" data-error-for="message"></p>
+            </div>
+            <button type="submit" class="btn-primary w-full">Send message</button>
+            <p class="hidden rounded-md bg-success/10 px-4 py-3 text-sm font-medium text-success" role="status" data-form-status></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ Footer ============ -->
+    <footer class="bg-footer px-5 py-12 text-white md:px-8 lg:px-20">
+      <div class="mx-auto flex max-w-(--container-page) flex-col gap-8">
+        <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div class="flex flex-col gap-3">
+            <a href="#home" class="focus-ring flex w-fit items-center gap-3 rounded-md focus-visible:outline-white" aria-label="Campus Eats home">
+              <span class="flex size-10 items-center justify-center rounded-md bg-primary">
+                <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+              </span>
+              <span class="text-xl font-bold">Campus Eats</span>
+            </a>
+            <p class="text-sm text-footer-text">Campus food, without the queue.</p>
+          </div>
+          <nav aria-label="Footer">
+            <ul class="flex flex-wrap gap-x-8 gap-y-3">
+              <li><a href="#features" class="focus-ring rounded-sm text-footer-text transition-colors hover:text-white focus-visible:outline-white">How it works</a></li>
+              <li><a href="#popular" class="focus-ring rounded-sm text-footer-text transition-colors hover:text-white focus-visible:outline-white">Menu</a></li>
+              <li><a href="#contact" class="focus-ring rounded-sm text-footer-text transition-colors hover:text-white focus-visible:outline-white">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-footer-muted md:flex-row md:justify-between">
+          <p>© 2026 Campus Eats. A student project for HCI Lab 07.</p>
+          <p>Designed in Figma · Built with HTML5 &amp; Tailwind CSS</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

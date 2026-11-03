@@ -1,0 +1,95 @@
+/*
+  Campus Eats — Tailwind CSS v4 entry file.
+  Design tokens below mirror the Figma variables (collection "Color Tokens"
+  and "Spacing & Radius"), pulled with the Figma MCP tool get_variable_defs.
+  Build: npm run build   →   assets/css/styles.css
+*/
+@import "tailwindcss";
+
+/* Only scan the files that actually contain class names */
+@source "../../index.html";
+@source "../../assets/js";
+
+@theme {
+  /* Typography (Figma text styles use Poppins) */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* Color tokens  — Figma: color/* */
+  --color-primary: #c2410c;
+  --color-primary-hover: #9a3412;
+  --color-secondary: #ffedd5;
+  --color-background: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-muted: #5c5c5c;
+  --color-on-primary: #ffffff;
+  --color-border: #e5e5e5;
+  --color-success: #15803d;
+  --color-footer: #1a1a1a;
+  --color-footer-text: #d4d4d4;
+  --color-footer-muted: #a3a3a3;
+
+  /* Radius tokens — Figma: radius/* */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --container-page: 1200px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-ink antialiased;
+  }
+
+  /* Anchor targets should not hide under the sticky header */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Reusable component utilities (v4 @utility so they can be composed with @apply) */
+
+/* Shared focus ring for every interactive element (keyboard users) */
+@utility focus-ring {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+}
+
+/* PrimaryButton — Figma component "Button / Type=Primary" */
+@utility btn-primary {
+  @apply focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-semibold text-on-primary transition-colors hover:bg-primary-hover active:translate-y-px;
+}
+
+/* SecondaryButton — Figma component "Button / Type=Secondary" */
+@utility btn-secondary {
+  @apply focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-primary bg-surface px-6 py-3 text-base font-semibold text-primary transition-colors hover:bg-secondary active:translate-y-px;
+}
+
+/* Section eyebrow label — Figma text style "Label/Eyebrow" */
+@utility eyebrow {
+  @apply text-sm font-semibold tracking-wide text-primary uppercase;
+}
+
+/* Form input — Figma component "InputField" */
+@utility field-input {
+  @apply focus-ring w-full rounded-md border border-border bg-surface px-4 py-3 text-base text-ink transition-colors placeholder:text-muted hover:border-muted focus-visible:border-primary aria-invalid:border-red-700;
+}

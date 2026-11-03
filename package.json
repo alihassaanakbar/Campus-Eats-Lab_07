@@ -1,0 +1,14 @@
+{
+  "name": "campus-eats-lab07",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HCI Lab 07: Campus Eats website converted from a Figma design using the Figma MCP server, HTML5 and Tailwind CSS.",
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles/input.css -o ./assets/css/styles.css --minify",
+    "watch": "tailwindcss -i ./src/styles/input.css -o ./assets/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}
